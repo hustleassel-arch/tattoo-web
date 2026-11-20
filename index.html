@@ -2,115 +2,61 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fotoanleitung Tattoo-Vorlagen</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,600..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
-<style>
-/* Layout: eine Spalte wie ein Arbeitsblatt fürs Handy, Skizzen in Schablonen-Violett (Farbe von Thermo-Stencils) */
-:root {
-  --paper: #f5f6fa;
-  --card: #ffffff;
-  --ink: #16171d;
-  --muted: #5b5f6e;
-  --line: #d8dae5;
-  --stencil: #4a37b5;
-  --stencil-soft: #e7e3fb;
-  --warn: #b3262f;
-  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
-  --body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #111218; --card: #191a22; --ink: #eceef5; --muted: #a2a6b6; --line: #2c2e3b;
-    --stencil: #a99cff; --stencil-soft: #262049; --warn: #ff6d74; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #111218; --card: #191a22; --ink: #eceef5; --muted: #a2a6b6; --line: #2c2e3b;
-  --stencil: #a99cff; --stencil-soft: #262049; --warn: #ff6d74; color-scheme: dark;
-}
-body { background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--body); }
-.wrap { max-width: 760px; margin: 0 auto; padding-block: 28px 56px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid; gap: 40px; }
-h1, h2, h3 { font-family: var(--display); font-stretch: 78%; text-wrap: balance; margin: 0; line-height: 1.1; }
-h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); font-weight: 800; letter-spacing: -0.01em; }
-h2 { font-size: 1.75rem; font-weight: 800; }
-h3 { font-size: 1.15rem; font-weight: 700; font-stretch: 90%; }
-p { margin: 0; max-width: 65ch; }
-.eyebrow { font: 600 0.78rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--stencil); }
-.lead { color: var(--muted); font-size: 1.05rem; }
-header { display: grid; gap: 14px; }
-.minimum { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between;
-  border: 2px dashed var(--stencil); border-radius: 10px; padding: 14px 16px; background: var(--card); }
-.minimum p { min-width: 0; flex: 1 1 260px; }
-.progress { font: 600 0.95rem var(--mono); color: var(--stencil); white-space: nowrap; font-variant-numeric: tabular-nums; }
-section { display: grid; gap: 18px; }
-.sec-head { display: grid; gap: 6px; }
-.sec-head .tag { font: 700 0.85rem var(--mono); color: var(--stencil); }
-.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-.rule { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 4px; min-width: 0; }
-.rule b { font-weight: 600; }
-.rule span { color: var(--muted); font-size: 0.95rem; }
-figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
-figcaption { color: var(--muted); font-size: 0.92rem; }
-.sk { width: 100%; height: auto; display: block; max-width: 100%; }
-.sheet { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
-.sk .l { fill: none; stroke: var(--stencil); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.sk .f { fill: var(--stencil-soft); stroke: var(--stencil); stroke-width: 2; stroke-linejoin: round; }
-.sk .solid { fill: var(--stencil); }
-.sk .d { stroke-dasharray: 5 6; }
-.sk .wall { fill: var(--line); }
-.sk .paper { fill: var(--card); stroke: var(--stencil); stroke-width: 1.5; }
-.sk .limb-o { fill: none; stroke: var(--stencil); stroke-width: 13; stroke-linecap: round; }
-.sk .limb-i { fill: none; stroke: var(--stencil-soft); stroke-width: 9; stroke-linecap: round; }
-.sk .x { stroke: var(--warn); stroke-width: 5; stroke-linecap: round; }
-.sk text { font-family: var(--body); }
-.sk .t { fill: var(--muted); font-size: 13px; font-weight: 500; }
-.sk .tl { fill: var(--ink); font-size: 14px; font-weight: 600; }
-.sk .tm { fill: var(--stencil); font: 500 11px var(--mono); }
-.nots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.nots figure { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
-.nots figcaption { font-size: 0.85rem; }
-.views { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-.view { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 8px; align-content: start; min-width: 0; }
-.view svg { max-width: 130px; margin: 0 auto; }
-.check { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; }
-.check input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--stencil); flex: none; }
-.check input:focus-visible { outline: 3px solid var(--stencil); outline-offset: 2px; }
-.check .txt { display: grid; gap: 2px; min-width: 0; }
-.file { font: 500 0.88rem var(--mono); color: var(--ink); overflow-wrap: anywhere; }
-.desc { color: var(--muted); font-size: 0.9rem; }
-.badge { display: inline-block; font: 600 0.68rem/1 var(--body); letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--stencil); border: 1px solid var(--stencil); border-radius: 999px; padding: 3px 7px; vertical-align: 2px; margin-left: 6px; }
-.checklist { display: grid; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
-.checklist h3 { margin-bottom: 2px; }
-.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font: 500 0.82rem var(--mono); background: var(--stencil-soft); color: var(--ink); border-radius: 6px; padding: 5px 9px; }
-.note { border-left: 3px solid var(--stencil); padding: 4px 0 4px 14px; color: var(--muted); }
-code { font: 500 0.9em var(--mono); background: var(--stencil-soft); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
-button { font: 600 0.9rem var(--body); color: var(--stencil); background: transparent; border: 1.5px solid var(--stencil);
-  border-radius: 8px; padding: 8px 14px; cursor: pointer; justify-self: start; }
-button:focus-visible { outline: 3px solid var(--stencil); outline-offset: 2px; }
-footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
-@media (max-width: 420px) { .nots { grid-template-columns: 1fr; } .nots figure { display: grid; grid-template-columns: 96px 1fr; align-items: center; } }
-</style>
+<link rel="stylesheet" href="stil.css">
 </head>
 <body>
-
-<div class="wrap">
+<div class="wrap" data-seite="haupt">
 <header>
   <div class="eyebrow">Tattoo-Vorlagen · Schritt 1 von 5</div>
   <h1>Fotoanleitung</h1>
-  <p class="lead">Aus diesen Fotos entstehen der Avatar, die Körperkarte mit Maßen und die maßgenaue Anprobe. Je sauberer die Fotos, desto weniger muss später korrigiert werden.</p>
+  <p class="lead">Diese Seite zeigt, wie der ganze Körper für den Avatar fotografiert wird. Für jede Stelle, die ein Tattoo bekommen soll, gibt es eine eigene Seite mit Messfotos und Handmaßen.</p>
   <div class="minimum">
-    <p><b>Für den Start reichen:</b> alle vier Kopf-Ansichten, Ganzkörper von vorn und hinten, ein bis zwei Stellen mit Maßband. Was dazu gehört, ist unten mit <span class="badge">Minimum</span> markiert.</p>
+    <p><b>Für den Avatar reichen:</b> alle vier Kopf-Ansichten und der Ganzkörper von vorn und hinten. Was dazu gehört, ist unten mit <span class="badge">Minimum</span> markiert.</p>
     <span class="progress" id="progress">0 von 0 abgehakt</span>
   </div>
 </header>
+
+<section aria-labelledby="grund">
+  <div class="sec-head"><span class="tag">Grundgedanke</span><h2 id="grund">Zwei Arten von Messungen</h2>
+    <p class="lead">Beide sind für jede Stelle nötig, und keine ersetzt die andere.</p></div>
+  <div class="grund">
+    <figure>
+      <h3><span class="nr">1</span>Maßstab im Foto</h3>
+      <svg class="sk" viewBox="0 0 320 190" role="img" aria-label="Kamera über einer Hautfläche, darauf eine L-förmige Maßstabkarte mit x- und y-Achse">
+        <rect class="f" x="140" y="10" width="40" height="22" rx="4"/>
+        <circle class="l" cx="160" cy="21" r="6"/>
+        <path class="l d" d="M160 34 L70 132 M160 34 L250 132"/>
+        <path class="f" d="M24 150 Q160 118 296 150 L296 182 L24 182 Z"/>
+        <path class="paper" d="M132 104 L140 104 L140 138 L188 138 L188 146 L132 146 Z"/>
+        <path class="l" style="stroke-width:1" d="M140 110 L136 110 M140 116 L137 116 M140 122 L136 122 M140 128 L137 128 M140 134 L136 134 M146 138 L146 142 M152 138 L152 141 M158 138 L158 142 M164 138 L164 141 M170 138 L170 142 M176 138 L176 141 M182 138 L182 142"/>
+        <text class="tm" x="196" y="146">x</text>
+        <text class="tm" x="120" y="110">y</text>
+        <text class="t" x="160" y="174" text-anchor="middle">Haut</text>
+      </svg>
+      <p>Wie viele Pixel ein Millimeter im Foto ist, waagerecht <b>und</b> senkrecht. Dafür liegt eine kleine L-Karte (oder zwei Stücke Maßband im rechten Winkel) flach auf der Haut, in der Mitte jeder Ansicht. Ein einzelnes Band misst nur seine eigene Richtung.</p>
+    </figure>
+    <figure>
+      <h3><span class="nr">2</span>Maße auf der Haut</h3>
+      <svg class="sk" viewBox="0 0 320 190" role="img" aria-label="Gewölbte Hautfläche; das Maßband folgt der Wölbung von A nach B, eine gestrichelte Luftlinie ist zu kurz">
+        <path class="f" d="M30 176 Q30 40 160 40 Q290 40 290 176 Z"/>
+        <path class="m" d="M52 120 Q70 52 160 46 Q250 52 268 120"/>
+        <path class="warnl" d="M52 120 L268 120"/>
+        <circle class="solid" cx="52" cy="120" r="5"/>
+        <circle class="solid" cx="268" cy="120" r="5"/>
+        <text class="tl" x="38" y="142">A</text>
+        <text class="tl" x="272" y="142">B</text>
+        <text class="t" x="160" y="34" text-anchor="middle">Band angelegt</text>
+        <text class="tw" x="160" y="138" text-anchor="middle">frei gehalten: falsch</text>
+      </svg>
+      <p>Wie groß die Fläche wirklich ist: Längen, Bögen, Umfänge mit dem weichen Maßband, angelegt auf der Haut. Zu jedem Maß gehören Anfangspunkt, Endpunkt und Weg (gerade, schräg, um die Rundung). Jede Stellen-Seite gibt die Maße mit Buchstaben vor.</p>
+    </figure>
+  </div>
+  <p class="note"><b>Bezugshaltung</b> für Messfotos und Handmaße: aufrecht, Arme locker hängend, Schultern entspannt, ruhig atmen. Die Haut dehnt sich je nach Haltung, auf der Brust in der Breite sehr stark; Maße aus verschiedenen Haltungen passen nicht zusammen.</p>
+</section>
 
 <section aria-labelledby="aufbau">
   <div class="sec-head"><span class="tag">Vorbereitung</span><h2 id="aufbau">Aufbau und Regeln</h2></div>
@@ -134,17 +80,17 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
       <circle class="l" cx="180" cy="261" r="6"/>
       <text class="tl" x="206" y="266">Kamera</text>
     </svg>
-    <figcaption>Draufsicht. Die Kamera steht gerade vor der Person; das Licht kommt weich von der Seite und etwas von vorn.</figcaption>
+    <figcaption>Draufsicht. Die Kamera steht gerade vor der Person auf einem Stativ; das Licht kommt weich von der Seite und etwas von vorn.</figcaption>
   </figure>
 
   <div class="rules">
-    <div class="rule"><b>Hauptkamera, 1×</b><span>Kein 0,5×-Weitwinkel, kein Porträtmodus, keine Filter, keine Beauty-Glättung. Die Hautstruktur wird gebraucht.</span></div>
-    <div class="rule"><b>Nie gespiegelt</b><span>Selbstauslöser mit Stativ oder eine zweite Person. Links und rechts müssen stimmen.</span></div>
+    <div class="rule"><b>Hauptkamera, 1×</b><span>Kein 0,5×-Weitwinkel, kein Porträtmodus, keine Filter, keine Beauty-Glättung. Keine Webcam: zu wenig Pixel je Millimeter.</span></div>
+    <div class="rule"><b>Nie gespiegelt</b><span>Selbstauslöser mit Stativ oder eine zweite Person. Frontkamera nur, wenn das Telefon nicht spiegelt.</span></div>
     <div class="rule"><b>Weiches Licht</b><span>Fenster seitlich-vorn oder bedeckter Himmel. Keine Mittagssonne, kein Blitz, nicht nur die Deckenlampe.</span></div>
     <div class="rule"><b>Ruhiger Hintergrund</b><span>Helle Wand, nichts Privates im Bild.</span></div>
-    <div class="rule"><b>Kleidung</b><span>Shorts; für Stellen am Oberkörper freier Oberkörper oder Tanktop. Kein Schmuck, keine Uhr an den Stellen.</span></div>
+    <div class="rule"><b>Kleidung</b><span>Shorts; für Stellen am Oberkörper freier Oberkörper. Kein Schmuck, keine Uhr an den Stellen.</span></div>
     <div class="rule"><b>Nichts verdecken</b><span>Bestehende Tattoos, Narben und Muttermale bleiben sichtbar; sie kommen in die Körperkarte.</span></div>
-    <div class="rule"><b>Originale behalten</b><span>Volle Auflösung, unbearbeitet, JPG oder HEIC.</span></div>
+    <div class="rule"><b>Originale behalten</b><span>Volle Auflösung, unbearbeitet, als JPG aus der Kamera. Kein Bildschirmfoto.</span></div>
     <div class="rule"><b>„li“ und „re“</b><span>Immer die eigene Seite, die zur Kamera zeigt: <code>kopf-profil-li</code> heißt, die eigene linke Gesichtsseite ist im Bild.</span></div>
   </div>
 
@@ -158,7 +104,7 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
         <circle class="l d" cx="86" cy="32" r="9"/>
         <path class="x" d="M14 14 L106 86 M106 14 L14 86"/>
       </svg>
-      <figcaption>Spiegel-Selfie oder Frontkamera: Bild ist gespiegelt</figcaption>
+      <figcaption>Spiegel-Selfie: links und rechts vertauscht</figcaption>
     </figure>
     <figure>
       <svg class="sk" viewBox="0 0 120 100" role="img" aria-label="Weitwinkel 0,5×, durchgestrichen">
@@ -180,7 +126,7 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
 
 <section aria-labelledby="kopf">
   <div class="sec-head"><span class="tag">A</span><h2 id="kopf">Kopf</h2>
-    <p class="lead">Für die Ähnlichkeit des Avatars. Kamera auf Augenhöhe, 1 bis 1,5 m Abstand, neutraler Ausdruck, Haare wie meistens getragen.</p></div>
+    <p class="lead">Für die Ähnlichkeit des Avatars. Kamera auf Augenhöhe, 1 bis 1,5 m Abstand, neutraler Ausdruck, Haare und Bart wie meistens getragen.</p></div>
   <div class="views">
     <div class="view">
       <svg class="sk" viewBox="0 0 100 120" role="img" aria-label="Kopf von vorn">
@@ -266,7 +212,7 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
       <text class="t" x="110" y="322" text-anchor="middle">Arme ≈ 20° ab, Handflächen nach vorn</text>
       <text class="t" x="290" y="322" text-anchor="middle">Kamera auf Hüfthöhe</text>
     </svg>
-    <figcaption>Gerade stehen, Gewicht auf beiden Beinen. Die Handflächen zeigen nach vorn, damit die Unterarm-Innenseite zu sehen ist.</figcaption>
+    <figcaption>Gerade stehen, Gewicht auf beiden Beinen. Für den Avatar zeigen die Handflächen nach vorn, damit die Unterarm-Innenseite zu sehen ist. Für Messfotos gilt dagegen die Bezugshaltung mit hängenden Armen.</figcaption>
   </figure>
   <div class="views">
     <label class="check view"><input type="checkbox" id="c-ganz-vorn" data-min="1"><span class="txt"><span class="file">ganz-vorn.jpg <span class="badge">Minimum</span></span><span class="desc">von vorn</span></span></label>
@@ -279,106 +225,23 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
 
 <section aria-labelledby="stellen">
   <div class="sec-head"><span class="tag">C</span><h2 id="stellen">Stellen</h2>
-    <p class="lead">Je Stelle, die in Frage kommt; zuerst die interessantesten. Die Messfotos bestimmen später die Größe des Tattoos auf den Millimeter.</p></div>
-
-  <div class="two">
-    <figure class="sheet">
-      <svg class="sk" viewBox="0 0 360 170" role="img" aria-label="Unterarm mit flach aufgelegtem Maßband zwischen Ellenbeuge und Handgelenk">
-        <defs>
-          <pattern id="ticks" width="8" height="16" patternUnits="userSpaceOnUse">
-            <path class="l" d="M0.5 0 L0.5 6" style="stroke-width:1.2"/>
-          </pattern>
-        </defs>
-        <text class="tl" x="20" y="24">Maßband flach auf der Haut</text>
-        <path class="f" d="M30 62 C30 52 40 48 60 48 L270 66 C280 64 290 62 300 62 L338 64 C346 66 346 92 338 96 L300 98 C290 98 280 96 270 94 L60 114 C40 114 30 108 30 100 Z"/>
-        <rect class="paper" x="60" y="73" width="212" height="17"/>
-        <rect x="60" y="73" width="212" height="17" fill="url(#ticks)"/>
-        <text class="tm" x="62" y="88">0</text>
-        <text class="tm" x="141" y="88">10</text>
-        <text class="tm" x="221" y="88">20</text>
-        <circle class="solid" cx="60" cy="58" r="4"/>
-        <circle class="solid" cx="275" cy="68" r="4"/>
-        <path class="l" d="M60 118 L60 130 M275 98 L275 130"/>
-        <text class="t" x="60" y="148" text-anchor="middle">Ellenbeuge</text>
-        <text class="t" x="275" y="148" text-anchor="middle">Handgelenk</text>
-      </svg>
-      <figcaption>Messfoto: weiches Schneidermaßband, kein Stahlbandmaß (liegt an Rundungen nicht an); mindestens 10 cm lesbar, ein Bezugspunkt im Bild (Handgelenk, Ellenbeuge, Knie, Schulterhöhe).</figcaption>
-    </figure>
-
-    <figure class="sheet">
-      <svg class="sk" viewBox="0 0 360 170" role="img" aria-label="Seitenansicht: Kamera parallel über der Stelle in 40 bis 60 Zentimetern">
-        <text class="tl" x="20" y="24">Kamera parallel zur Haut</text>
-        <rect class="f" x="140" y="40" width="40" height="22" rx="4"/>
-        <rect class="f" x="153" y="62" width="14" height="6" rx="1"/>
-        <path class="l d" d="M160 68 L74 128 M160 68 L246 128"/>
-        <rect class="f" x="60" y="130" width="200" height="24" rx="12"/>
-        <text class="t" x="160" y="147" text-anchor="middle">Stelle</text>
-        <path class="l" d="M300 51 L300 142 M294 51 L306 51 M294 142 L306 142"/>
-        <text class="tm" x="310" y="100">40–60 cm</text>
-      </svg>
-      <figcaption>Gerade von oben bzw. vorn, nicht schräg: Stativ auf Höhe der Stelle, nie von unten; am Hals Kopf gerade, nicht im Nacken. Die Stelle füllt etwa zwei Drittel des Bildes.</figcaption>
-    </figure>
-
-    <figure class="sheet">
-      <svg class="sk" viewBox="0 0 360 200" role="img" aria-label="Querschnitt eines Arms mit drei Kamerapositionen: gerade und je 45 Grad zur Seite">
-        <ellipse class="f" cx="180" cy="158" rx="46" ry="34"/>
-        <path class="l" d="M168 125 L180 116 L192 125"/>
-        <text class="t" x="180" y="164" text-anchor="middle">Arm</text>
-        <path class="l d" d="M180 58 L180 118 M112 90 L150 128 M248 90 L210 128"/>
-        <g transform="translate(180 42)"><rect class="f" x="-15" y="-10" width="30" height="18" rx="3"/><rect class="f" x="-5" y="8" width="10" height="5"/></g>
-        <g transform="translate(102 80) rotate(-45)"><rect class="f" x="-15" y="-10" width="30" height="18" rx="3"/><rect class="f" x="-5" y="8" width="10" height="5"/></g>
-        <g transform="translate(258 80) rotate(45)"><rect class="f" x="-15" y="-10" width="30" height="18" rx="3"/><rect class="f" x="-5" y="8" width="10" height="5"/></g>
-        <text class="tm" x="180" y="20" text-anchor="middle">übersicht</text>
-        <text class="tm" x="70" y="52" text-anchor="middle">≈ 45°</text>
-        <text class="tm" x="290" y="52" text-anchor="middle">≈ 45°</text>
-      </svg>
-      <figcaption>Bei runden Stellen (Arm, Bein) zwei Fotos zusätzlich, je etwa 45° zur Seite; Abstand gleich. Ob die Kamera wandert oder der Arm sich dreht, ist egal.</figcaption>
-    </figure>
-
-    <figure class="sheet">
-      <svg class="sk" viewBox="0 0 360 170" role="img" aria-label="Unterarm mit Umfang oben und unten und der Länge zwischen zwei Bezugspunkten">
-        <path class="f" d="M30 52 C30 46 40 44 60 44 L270 58 C300 58 320 60 336 62 C344 64 344 98 336 100 L300 102 L270 104 L60 118 C40 118 30 114 30 110 Z"/>
-        <ellipse class="l" cx="80" cy="81" rx="8" ry="37" style="stroke-width:3"/>
-        <ellipse class="l" cx="255" cy="81" rx="6" ry="25" style="stroke-width:3"/>
-        <text class="tm" x="80" y="28" text-anchor="middle">Umfang oben</text>
-        <text class="tm" x="255" y="44" text-anchor="middle">Umfang unten</text>
-        <path class="l" d="M80 136 L255 136 M80 130 L80 142 M255 130 L255 142"/>
-        <text class="t" x="168" y="158" text-anchor="middle">Länge zwischen Bezugspunkten</text>
-      </svg>
-      <figcaption>Mit dem Maßband messen und notieren, in cm: Länge der Fläche; bei Arm und Bein den Umfang oben und unten und wo er gemessen wurde (z. B. 5 cm unter der Ellenbeuge).</figcaption>
-    </figure>
+    <p class="lead">Je Stelle eine eigene Seite: Maßstab im Foto, Fotos aus mehreren Winkeln, Handmaße mit Buchstaben. Nur die Stellen, die ein Tattoo bekommen sollen.</p></div>
+  <div class="parts">
+    <a class="part" href="hals.html"><span class="status">fertig</span><h3>Hals</h3><span class="desc">vorn und seitlich bis zum Schlüsselbein; sieben Handmaße, drei bis fünf Ansichten</span></a>
+    <a class="part" href="massstab.html"><span class="status">zum Ausdrucken</span><h3>Maßstabkarte</h3><span class="desc">L-Karte mit x und y für den Maßstab im Foto, mit Kontrolllinie</span></a>
+    <div class="part"><span class="status">folgt</span><h3>Brust</h3><span class="desc">Breite von der Brustbeinmitte zur Achsel, Höhe, Umfang</span></div>
+    <div class="part"><span class="status">folgt</span><h3>Schulter und Oberarm</h3><span class="desc">rundum: Längen außen und innen, Umfänge, Schulterbogen</span></div>
+    <div class="part"><span class="status">folgt</span><h3>Unterarm</h3><span class="desc">innen und außen, Ellenbeuge bis Handgelenk</span></div>
+    <div class="part"><span class="status">folgt</span><h3>Rücken und Schulterblatt</h3><span class="desc">nur mit einer zweiten Person</span></div>
+    <div class="part"><span class="status">folgt</span><h3>Bein</h3><span class="desc">Oberschenkel, Wade, Schienbein</span></div>
   </div>
-
-  <div class="sec-head"><h3>Mögliche Stellen</h3>
-    <p class="desc">Dateiname aus Stelle, Fläche und Seite, z. B. <code>unterarm-innen-li</code>. Für Rücken und Schulterblatt braucht es eine zweite Person.</p></div>
-  <div class="chips">
-    <span class="chip">unterarm-innen</span><span class="chip">unterarm-aussen</span><span class="chip">oberarm-aussen</span>
-    <span class="chip">schulter</span><span class="chip">schulterblatt</span><span class="chip">ruecken-oben</span><span class="chip">brust</span>
-    <span class="chip">rippen</span><span class="chip">oberschenkel-aussen</span><span class="chip">wade-aussen</span>
-  </div>
-
-  <div class="two">
-    <div class="checklist">
-      <h3>Erste Stelle</h3>
-      <label class="check"><input type="checkbox" id="c-s1-uebersicht" data-min="1"><span class="txt"><span class="file">&lt;stelle&gt;-uebersicht.jpg <span class="badge">Minimum</span></span><span class="desc">frontal, ohne Maßband</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s1-mass" data-min="1"><span class="txt"><span class="file">&lt;stelle&gt;-mass.jpg <span class="badge">Minimum</span></span><span class="desc">mit Maßband und Bezugspunkt</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s1-dreh"><span class="txt"><span class="file">&lt;stelle&gt;-dreh-li.jpg, -dreh-re.jpg</span><span class="desc">nur bei Arm oder Bein</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s1-masse" data-min="1"><span class="txt"><span class="file">Maße notiert <span class="badge">Minimum</span></span><span class="desc">Länge, bei Arm und Bein Umfang oben und unten</span></span></label>
-    </div>
-    <div class="checklist">
-      <h3>Zweite Stelle</h3>
-      <label class="check"><input type="checkbox" id="c-s2-uebersicht"><span class="txt"><span class="file">&lt;stelle&gt;-uebersicht.jpg</span><span class="desc">frontal, ohne Maßband</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s2-mass"><span class="txt"><span class="file">&lt;stelle&gt;-mass.jpg</span><span class="desc">mit Maßband und Bezugspunkt</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s2-dreh"><span class="txt"><span class="file">&lt;stelle&gt;-dreh-li.jpg, -dreh-re.jpg</span><span class="desc">nur bei Arm oder Bein</span></span></label>
-      <label class="check"><input type="checkbox" id="c-s2-masse"><span class="txt"><span class="file">Maße notiert</span><span class="desc">Länge, bei Arm und Bein Umfang oben und unten</span></span></label>
-    </div>
-  </div>
+  <p class="desc">Dateinamen aus Stelle, Ansicht und Seite, z. B. <code>hals-seite-li-mass.jpg</code>. Für Rücken und Schulterblatt braucht es eine zweite Person.</p>
 </section>
 
 <section aria-labelledby="ablage">
   <div class="sec-head"><span class="tag">Danach</span><h2 id="ablage">Ablegen und Bescheid geben</h2></div>
-  <p>Fotos mit den Dateinamen oben in den Fotoordner des Projekts legen: <code>personen/&lt;kürzel&gt;/fotos/</code>. Die Maße kurz dazuschreiben (Nachricht reicht). Claude sichtet jedes Foto in voller Größe und trägt Merkmale und Maße in die Körperkarte ein; der Ordner ist vom Git ausgeschlossen.</p>
-  <p class="note">An Codex gehen später nur Ausschnitte, nie der ganze Ordner.</p>
+  <p>Fotos mit den Dateinamen in den Fotoordner des Projekts legen (<code>personen/&lt;kürzel&gt;/fotos/</code>) oder in den Chat geben, als JPG aus der Kamera. Die Handmaße mit ihren Buchstaben dazuschreiben. Claude sichtet jedes Foto in voller Größe und trägt Merkmale und Maße in die Körperkarte ein; der Fotoordner ist vom Git ausgeschlossen.</p>
+  <p class="note">An das Bildmodell gehen später nur Ausschnitte, nie der ganze Ordner.</p>
 </section>
 
 <footer>
@@ -387,29 +250,6 @@ footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
 </footer>
 </div>
 
-<script>
-(function () {
-  var KEY = "fotoanleitung-v1";
-  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[type="checkbox"]'));
-  var state = {};
-  try { state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { state = {}; }
-  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
-  function update() {
-    var done = boxes.filter(function (b) { return b.checked; }).length;
-    var mins = boxes.filter(function (b) { return b.dataset.min; });
-    var minDone = mins.filter(function (b) { return b.checked; }).length;
-    document.getElementById("progress").textContent =
-      done + " von " + boxes.length + " abgehakt · Minimum " + minDone + "/" + mins.length;
-  }
-  boxes.forEach(function (b) {
-    b.checked = !!state[b.id];
-    b.addEventListener("change", function () { state[b.id] = b.checked; save(); update(); });
-  });
-  document.getElementById("reset").addEventListener("click", function () {
-    boxes.forEach(function (b) { b.checked = false; }); state = {}; save(); update();
-  });
-  update();
-})();
-</script>
+<script src="haken.js"></script>
 </body>
 </html>

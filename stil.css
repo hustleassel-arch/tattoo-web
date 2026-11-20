@@ -1,0 +1,141 @@
+/* Fotoanleitung: eine Spalte wie ein Arbeitsblatt fürs Handy, Skizzen in Schablonen-Violett (Farbe von Thermo-Stencils).
+   Gemeinsam für Hauptseite und Stellen-Seiten. */
+:root {
+  --paper: #f5f6fa;
+  --card: #ffffff;
+  --ink: #16171d;
+  --muted: #5b5f6e;
+  --line: #d8dae5;
+  --stencil: #4a37b5;
+  --stencil-soft: #e7e3fb;
+  --warn: #b3262f;
+  --karte-bg: #ffffff;
+  --karte-ink: #000000;
+  --display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #111218; --card: #191a22; --ink: #eceef5; --muted: #a2a6b6; --line: #2c2e3b;
+    --stencil: #a99cff; --stencil-soft: #262049; --warn: #ff6d74; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #111218; --card: #191a22; --ink: #eceef5; --muted: #a2a6b6; --line: #2c2e3b;
+  --stencil: #a99cff; --stencil-soft: #262049; --warn: #ff6d74; color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font: 400 16px/1.55 var(--body); margin: 0; }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 40px; }
+h1, h2, h3 { font-family: var(--display); font-stretch: 78%; text-wrap: balance; margin: 0; line-height: 1.1; }
+h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.75rem; font-weight: 800; }
+h3 { font-size: 1.15rem; font-weight: 700; font-stretch: 90%; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--stencil); }
+a:focus-visible { outline: 3px solid var(--stencil); outline-offset: 2px; border-radius: 4px; }
+.eyebrow { font: 600 0.78rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--stencil); }
+.lead { color: var(--muted); font-size: 1.05rem; }
+header { display: grid; gap: 14px; }
+.back { font: 600 0.9rem var(--body); text-decoration: none; justify-self: start; }
+.back:hover { text-decoration: underline; }
+.minimum { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between;
+  border: 2px dashed var(--stencil); border-radius: 10px; padding: 14px 16px; background: var(--card); }
+.minimum p { min-width: 0; flex: 1 1 260px; }
+.progress { font: 600 0.95rem var(--mono); color: var(--stencil); white-space: nowrap; font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 18px; }
+.sec-head { display: grid; gap: 6px; }
+.sec-head .tag { font: 700 0.85rem var(--mono); color: var(--stencil); }
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.rule { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 4px; min-width: 0; align-content: start; }
+.rule b { font-weight: 600; }
+.rule span { color: var(--muted); font-size: 0.95rem; }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+figcaption { color: var(--muted); font-size: 0.92rem; }
+.sk { width: 100%; height: auto; display: block; max-width: 100%; }
+.sheet { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.sk .l { fill: none; stroke: var(--stencil); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sk .f { fill: var(--stencil-soft); stroke: var(--stencil); stroke-width: 2; stroke-linejoin: round; }
+.sk .solid { fill: var(--stencil); }
+.sk .d { stroke-dasharray: 5 6; }
+.sk .wall { fill: var(--line); }
+.sk .paper { fill: var(--card); stroke: var(--stencil); stroke-width: 1.5; }
+.sk .bart { fill: var(--line); stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.sk .limb-o { fill: none; stroke: var(--stencil); stroke-width: 13; stroke-linecap: round; }
+.sk .limb-i { fill: none; stroke: var(--stencil-soft); stroke-width: 9; stroke-linecap: round; }
+.sk .x { stroke: var(--warn); stroke-width: 5; stroke-linecap: round; }
+.sk .m { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; }
+.sk .m.d { stroke-dasharray: 4 5; }
+.sk .warnl { fill: none; stroke: var(--warn); stroke-width: 2; stroke-dasharray: 4 5; }
+.sk text { font-family: var(--body); }
+.sk .t { fill: var(--muted); font-size: 13px; font-weight: 500; }
+.sk .tl { fill: var(--ink); font-size: 14px; font-weight: 600; }
+.sk .tm { fill: var(--stencil); font: 500 11px var(--mono); }
+.sk .tw { fill: var(--warn); font-size: 12px; font-weight: 600; }
+.sk .kc { fill: var(--ink); }
+.sk .kt { fill: var(--paper); font: 700 11px var(--mono); }
+.nots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.nots figure { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+.nots figcaption { font-size: 0.85rem; }
+.views { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.view { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.view svg { max-width: 130px; margin: 0 auto; }
+.check { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; min-width: 0; }
+.check input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--stencil); flex: none; }
+.check input:focus-visible { outline: 3px solid var(--stencil); outline-offset: 2px; }
+.check .txt { display: grid; gap: 2px; min-width: 0; }
+.file { font: 500 0.88rem var(--mono); color: var(--ink); overflow-wrap: anywhere; }
+.desc { color: var(--muted); font-size: 0.9rem; }
+.badge { display: inline-block; font: 600 0.68rem/1 var(--body); letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--stencil); border: 1px solid var(--stencil); border-radius: 999px; padding: 3px 7px; vertical-align: 2px; margin-left: 6px; }
+.checklist { display: grid; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.note { border-left: 3px solid var(--stencil); padding: 4px 0 4px 14px; color: var(--muted); }
+code { font: 500 0.9em var(--mono); background: var(--stencil-soft); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+button { font: 600 0.9rem var(--body); color: var(--stencil); background: transparent; border: 1.5px solid var(--stencil);
+  border-radius: 8px; padding: 8px 14px; cursor: pointer; justify-self: start; }
+button:focus-visible { outline: 3px solid var(--stencil); outline-offset: 2px; }
+footer { color: var(--muted); font-size: 0.88rem; display: grid; gap: 10px; }
+
+/* Zwei Arten von Messungen */
+.grund { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.grund figure { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 14px; gap: 10px; }
+.grund h3 { display: flex; gap: 10px; align-items: baseline; }
+.grund .nr { font: 700 0.85rem var(--mono); color: var(--stencil); }
+
+/* Inhaltsverzeichnis der Stellen */
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.part { display: grid; gap: 6px; align-content: start; min-width: 0; background: var(--card); border: 1px solid var(--line);
+  border-radius: 10px; padding: 14px 16px; text-decoration: none; color: var(--ink); }
+a.part { border: 1.5px solid var(--stencil); }
+a.part:hover { background: var(--stencil-soft); }
+a.part h3::after { content: " →"; color: var(--stencil); }
+.part .desc { font-size: 0.88rem; }
+.part .status { font: 600 0.72rem/1 var(--body); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+a.part .status { color: var(--stencil); }
+
+/* Handmaße mit Kennbuchstaben */
+.masse { display: grid; gap: 12px; }
+.mass { align-items: center; }
+.k { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--paper);
+  font: 700 0.85rem/26px var(--mono); text-align: center; }
+.fehler { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.fehler li { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: baseline; }
+.fehler li::before { content: "✕"; color: var(--warn); font-weight: 700; }
+
+/* Maßstabkarte zum Ausdrucken: immer schwarz auf weiß */
+.druck { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; background: var(--karte-bg); color: var(--karte-ink);
+  border: 1px solid var(--line); border-radius: 10px; padding: 16px; overflow-x: auto; }
+.druck svg { flex: none; }
+.druck .kt2 { font: 600 3px var(--body); fill: var(--karte-ink); }
+@media (max-width: 420px) { .nots { grid-template-columns: 1fr; } .nots figure { display: grid; grid-template-columns: 96px 1fr; align-items: center; } }
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; }
+  .wrap > *:not(.druckteil) { display: none !important; }
+  .druckteil > *:not(.druck) { display: none !important; }
+  .druck { border: none; padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
